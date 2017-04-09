@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Fridge</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/chef.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="/">Smart Fridge</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/user">User</a>
+                    </li>
+                    <li>
+                        <a href="/chef">Chef</a>
+                    </li>
+                    <li>
+                        <a href="/admin">Admin</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header -->
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Chef</h1>
+                        <h3>Chef Options</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="#new_meals" class="btn btn-default btn-lg"><span class="network-name">New Meals</span></a>
+                            </li>
+                            <li>
+                                <a href="#place_orders" class="btn btn-default btn-lg"><span class="network-name">Place Orders</span></a>
+                            </li>
+                            <li>
+                                <a href="#chef_reports" class="btn btn-default btn-lg"><span class="network-name">Reports</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+    <a  name="new_meals"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">New Meals</h2>
+
+                    <form action="#new_meals" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input class="form-control" placeholder="Meal Name" name="meal_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Cuisine</label>
+                            <input class="form-control" placeholder="Cuisine Type" name="meal_cuisine">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Description</label>
+                            <input class="form-control" placeholder="Description" name="meal_description">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Ingredients</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Ingredient Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Ingredient Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Ingredient Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Ingredient Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Ingredient Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Ingredient Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                        <div style="padding-top: 30px">
+                            <button type="submit" class="btn btn-primary" name="meal_submit_btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-section-a -->
+
+    <a  name="place_orders"></a>
+    <div class="content-section-b">
+        <div class="container" style="padding-bottom:60px">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Place Orders</h2>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Ingredient Orders</span>
+                        <input type="text" class="form-control" placeholder="Add Ingredient Name to List" aria-describedby="basic-addon1">
+                        <!-- <input type="text" class="form-control" placeholder="Add Ingredient Name to List" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Add Ingredient Name to List" aria-describedby="basic-addon1"> -->
+                    </div>
+
+                    <div style="padding-top:20px">
+                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <div style="padding-top: 30px">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-section-b -->
+
+    <a  name="chef_reports"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Reports</h2>
+
+                    <div class="row">
+                        <div class="col-md-6" id="mealInput">
+                            <div class="input-group input-group">
+                                <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                                <input type="text" class="form-control" placeholder="Search Meal" aria-describedby="sizing-addon1">
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="mealDropdown">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Choose a Cuisine <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">American</a></li>
+                                    <li><a href="#">French</a></li>
+                                    <li><a href="#">Italian</a></li>
+                                    <li><a href="#">Middle Eastern</a></li>
+                                    <li><a href="#">Chineese</a></li>
+                                    <li><a href="#">Japaneese</a></li>
+                                    <li><a href="#">Thai</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="padding-top:20px;">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Meals</h3>
+                            </div>
+                            <div class="panel-body" style="padding:60px;">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Ingredients</th>
+                                        <th>In Stock</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheeseburger</td>
+                                        <td>Burger patty, burger bun, Lettuce, Tomato, Cheese Slice, Onion</td>
+                                        <td class="in-stock">Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tomato Soup</td>
+                                        <td>Tomato</td>
+                                        <td class="out-of-stock">On Order: Tomato</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-section-a -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
