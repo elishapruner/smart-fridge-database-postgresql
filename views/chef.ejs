@@ -119,11 +119,11 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-default" aria-label="Left Align">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        </button>
-                    </div>
+                    <!--<div>-->
+                        <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                            <!--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>-->
+                        <!--</button>-->
+                    <!--</div>-->
 
                     <div style="padding-top: 30px">
                         <input type="submit" class="btn btn-primary" name="meal_submit_btn" />
@@ -144,18 +144,16 @@
                 <hr class="section-heading-spacer">
                 <div class="clearfix"></div>
                 <h2 class="section-heading">Place Orders</h2>
-                <form action="/food_form" method="POST">
+                <form action="/chef_place_order" method="POST">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Ingredient Orders</span>
                         <input type="text" class="form-control" placeholder="Add Ingredient Name to List" aria-describedby="basic-addon1" name="ingredient">
-                        <input type="text" class="form-control" placeholder="Add Ingredient Name to List" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control" placeholder="Add Ingredient Name to List" aria-describedby="basic-addon1">
                     </div>
-                    <div style="padding-top:20px">
-                        <button type="button" class="btn btn-default" aria-label="Left Align">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        </button>
-                    </div>
+                    <!--<div style="padding-top:20px">-->
+                        <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                            <!--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>-->
+                        <!--</button>-->
+                    <!--</div>-->
                     <div style="padding-top: 30px">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-4">
@@ -185,29 +183,20 @@
 
                 <div class="row">
                     <div class="col-md-6" id="mealInput">
-                        <div class="input-group input-group">
-                            <span class="input-group-addon" id="sizing-addon1"><span
-                                        class="glyphicon glyphicon-search"></span></span>
-                            <input type="text" class="form-control" placeholder="Search Meal"
-                                   aria-describedby="sizing-addon1">
-                        </div>
-                    </div>
-                    <div class="col-md-6" id="mealDropdown">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Choose a Cuisine <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">American</a></li>
-                                <li><a href="#">French</a></li>
-                                <li><a href="#">Italian</a></li>
-                                <li><a href="#">Middle Eastern</a></li>
-                                <li><a href="#">Chineese</a></li>
-                                <li><a href="#">Japaneese</a></li>
-                                <li><a href="#">Thai</a></li>
-                            </ul>
-                        </div>
+                        <form action="/filter_chef_report" method="POST">
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <div class="input-group input-group">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                                        <input type="text" class="form-control" placeholder="Search Meal"
+                                               aria-describedby="sizing-addon1" name="chef_report_input" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="submit" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -223,16 +212,13 @@
                                     <th>Ingredients</th>
                                     <th>In Stock</th>
                                 </tr>
-                                <tr>
-                                    <td>Cheeseburger</td>
-                                    <td>Burger patty, burger bun, Lettuce, Tomato, Cheese Slice, Onion</td>
-                                    <td class="in-stock">Yes</td>
-                                </tr>
-                                <tr>
-                                    <td>Tomato Soup</td>
-                                    <td>Tomato</td>
-                                    <td class="out-of-stock">On Order: Tomato</td>
-                                </tr>
+                                <% for (var i = 0; i < meal.length; i++) { %>
+                                    <tr>
+                                        <td><%= meal[i].name %></td>
+                                        <td><%= meal[i].ingredients %></td>
+                                        <td class="in-stock">Yes</td>
+                                    </tr>
+                                <% } %>
                             </table>
                         </div>
                     </div>

@@ -8,195 +8,188 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="/">Smart Fridge</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/user">User</a>
-                    </li>
-                    <li>
-                        <a href="/chef">Chef</a>
-                    </li>
-                    <li>
-                        <a href="/admin">Admin</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand topnav" href="/">Smart Fridge</a>
         </div>
-        <!-- /.container -->
-    </nav>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/user">User</a>
+                </li>
+                <li>
+                    <a href="/chef">Chef</a>
+                </li>
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-    <!-- Header -->
-    <div class="intro-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>User</h1>
-                        <h3>User Options</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="#get_food" class="btn btn-default btn-lg"><span class="network-name">Get Food</span></a>
-                            </li>
-                            <li>
-                                <a href="#request_meal" class="btn btn-default btn-lg"><span class="network-name">Request Meal</span></a>
-                            </li>
-                        </ul>
-                    </div>
+<!-- Header -->
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>User</h1>
+                    <h3>User Options</h3>
+                    <hr class="intro-divider">
+                    <ul class="list-inline intro-social-buttons">
+                        <li>
+                            <a href="#get_food" class="btn btn-default btn-lg"><span
+                                        class="network-name">Get Food</span></a>
+                        </li>
+                        <li>
+                            <a href="#request_meal" class="btn btn-default btn-lg"><span class="network-name">Request Meal</span></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <!-- /.container -->
     </div>
-    <!-- /.intro-header -->
+    <!-- /.container -->
+</div>
+<!-- /.intro-header -->
 
-    <!-- Page Content -->
-    <a  name="get_food"></a>
-    <div class="content-section-a">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Get Food</h2>
-
-                    <div class="row">
-                        <form action="#get_food" method="POST">
-                            <div class="form-group">
-                                <div class="col-md-6" id="foodInput">
-                                    <div class="input-group input-group">
-                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-                                        <input type="text" class="form-control" placeholder="Search Food" aria-describedby="sizing-addon1">
-                                    </div>
-                                </div>
-                                <div class="col-md-6" id="foodDropdown">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Choose a Category <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Grain</a></li>
-                                            <li><a href="#">Dairy</a></li>
-                                            <li><a href="#">Meat</a></li>
-                                            <li><a href="#">Vegetable</a></li>
-                                            <li><a href="#">Fruit</a></li>
-                                            <li><a href="#">Juice</a></li>
-                                            <li><a href="#">Egg</a></li>
-                                        </ul>
-                                    </div>
+<!-- Page Content -->
+<a name="get_food"></a>
+<div class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <div class="col-md-12">
+                <h2 class="section-heading">Get Food</h2>
+                <div class="row">
+                    <form action="/filter_food" method="POST">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <div class="input-group input-group">
+                                    <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                                    <input type="text" class="form-control" placeholder="Search Food"
+                                           aria-describedby="sizing-addon1" name="food_input" />
                                 </div>
                             </div>
-                            <div style="padding-top: 50px; padding-left: 20px;">
-                                <button type="submit" class="btn btn-default">
-                                    Submit
-                                </button>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" value="Filter" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class=" row" style="padding-top: 40px">
+            <% for (var i = 0; i < fooditem.length; i++) { %>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3><%= fooditem[i].name %></h3>
+                        <p>FoodID: <%= fooditem[i].foodid %></p>
+                        <p>Category: <%= fooditem[i].category %></p>
+                        <p>Count: <%= fooditem[i].count %></p>
+                        <p>Price per item: $<%= fooditem[i].priceperitem %></p>
+                        <p>Threshold: <%= fooditem[i].threshold %></p>
+                        <form action="/request_food" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="UserID" aria-describedby="basic-addon1" name="userID">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="FoodID" aria-describedby="basic-addon1" name="foodID">
+                                </div>
+                            </div>
+                            <div class="row" style="padding-top:20px; padding-left:20px">
+                                <input type="submit" value="Request Food Item" class="btn btn-primary" />
                             </div>
                         </form>
                     </div>
-
-                    <div class="row" style="padding-top: 40px">
-                        <% for (let i = 0; i < fooditem.length; i++) { %>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                  <div class="caption">
-                                      <h3><%= fooditem[i].name %></h3>
-                                      <p>Category: <%= fooditem[i].category %></p>
-                                      <p>Count: <%= fooditem[i].count %></p>
-                                      <p>Price per item: $<%= fooditem[i].priceperitem %></p>
-                                      <p>Threshold: <%= fooditem[i].threshold %></p>
-                                      <div class="row">
-                                          <div class="col-md-4 col-sm-4 col-xs-4">
-                                              <input type="text" class="form-control" placeholder="UserID" aria-describedby="basic-addon1" name="userID">
-                                          </div>
-                                          <div class="col-md-8 col-sm-8 col-xs-8">
-                                              <a href="#" class="btn btn-primary" role="button">Place Order</a>
-                                          </div>
-                                      </div>
-                                  </div>
-                                </div>
-                            </div>
-                        <% } %>
-                  </div>
                 </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <!-- /.container -->
+</div>
+
+<!-- /.content-section-a -->
+<a name="request_meal"></a>
+<div class="content-section-b">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Request Meal</h2>
+                <form action="/filter_meal" method="POST">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="input-group input-group">
+                                <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                                <input type="text" class="form-control" placeholder="Search Meal"
+                                       aria-describedby="sizing-addon1" name="meal_input" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" value="Filter" class="btn btn-default" />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- /.container -->
-    </div>
-    <!-- /.content-section-a -->
 
-    <a  name="request_meal"></a>
-    <div class="content-section-b">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Request Meal</h2>
-
-                    <div class="row">
-                        <div class="col-md-6" id="mealInput">
-                            <div class="input-group input-group">
-                                <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-                                <input type="text" class="form-control" placeholder="Search Meal" aria-describedby="sizing-addon1">
+        <div class="row" style="padding-top: 40px">
+            <% for (var i = 0; i < meal.length; i++) { %>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3><%= meal[i].name %></h3>
+                        <p>Meal ID: <%= meal[i].mealid %></p>
+                        <p>Description: <%= meal[i].description %></p>
+                        <p>Cuisine: <%= meal[i].cuisine %></p>
+                        <p>Ingredients: <%= meal[i].ingredients %></p>
+                        <form action="/request_food" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="UserID"
+                                           aria-describedby="basic-addon1" name="userID">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="MealID"
+                                           aria-describedby="basic-addon1" name="mealID">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6" id="mealDropdown">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Choose a Cuisine <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">American</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">Italian</a></li>
-                                    <li><a href="#">Middle Eastern</a></li>
-                                    <li><a href="#">Chineese</a></li>
-                                    <li><a href="#">Japaneese</a></li>
-                                    <li><a href="#">Thai</a></li>
-                                </ul>
+                            <div class="row" style="padding-top:20px; padding-left:20px">
+                                <input type="submit" value="Request Meal Item" class="btn btn-primary" />
                             </div>
-                        </div>
+                        </form>
                     </div>
-
                 </div>
             </div>
-            <!-- /.container -->
-
-            <div class="row" style="padding-top: 40px">
-                <% for (let i = 0; i < meal.length; i++) { %>
-                  <div class="col-sm-6 col-md-4">
-                      <div class="thumbnail">
-                          <div class="caption">
-                              <h3><%= meal[i].name %></h3>
-                              <p>Description: <%= meal[i].description %></p>
-                              <p>Cuisine: <%= meal[i].cuisine %></p>
-                              <p>Ingredients: <%= meal[i].ingredients %></p>
-                              <p><a href="#" class="btn btn-primary" role="button">Place Order</a></p>
-                          </div>
-                      </div>
-                  </div>
-                <% } %>
-            </div>
+            <% } %>
         </div>
-        <!-- /.content-section-b -->
     </div>
+    <!-- /.content-section-b -->
+</div>
 
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
 </body>
 </html>
