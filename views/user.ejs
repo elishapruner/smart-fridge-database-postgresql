@@ -110,18 +110,20 @@
                     </div>
 
                     <div class="row" style="padding-top: 40px">
-                          <div class="col-sm-6 col-md-4">
-                              <div class="thumbnail">
+                        <% for (let i = 0; i < fooditem.length; i++) { %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail">
                                   <div class="caption">
-                                      <h3></h3>
-                                      <p></p>
-                                      <p></p>
-                                      <p></p>
-                                      <p></p>
+                                      <h3><%= fooditem[i].name %></h3>
+                                      <p>Category: <%= fooditem[i].category %></p>
+                                      <p>Count: <%= fooditem[i].count %></p>
+                                      <p>Price per item: $<%= fooditem[i].priceperitem %></p>
+                                      <p>Threshold: <%= fooditem[i].threshold %></p>
                                       <p><a href="#" class="btn btn-primary" role="button">Place Order</a></p>
                                   </div>
-                              </div>
-                          </div>
+                                </div>
+                            </div>
+                        <% } %>
                   </div>
                 </div>
             </div>
@@ -169,17 +171,19 @@
             <!-- /.container -->
 
             <div class="row" style="padding-top: 40px">
+                <% for (let i = 0; i < meal.length; i++) { %>
                   <div class="col-sm-6 col-md-4">
                       <div class="thumbnail">
                           <div class="caption">
-                              <h3></h3>
-                              <p></p>
-                              <p></p>
-                              <p></p>
+                              <h3><%= meal[i].name %></h3>
+                              <p>Description: <%= meal[i].description %></p>
+                              <p>Cuisine: <%= meal[i].cuisine %></p>
+                              <p>Ingredients: <%= meal[i].ingredients %></p>
                               <p><a href="#" class="btn btn-primary" role="button">Place Order</a></p>
                           </div>
                       </div>
                   </div>
+                <% } %>
             </div>
         </div>
         <!-- /.content-section-b -->
