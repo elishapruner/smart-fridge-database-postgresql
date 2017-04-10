@@ -18,36 +18,58 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
-app.get('/user', function (req, res) {
-  pg.connect(connectDB, function(err, client, done) {
-    if (err) {
-      return console.error('error in fetching client', err);
-    }
-
-    client.query('SELECT * FROM smartfridge.fooditem', function(err, food) {
+var userRouter = express.Router();
+userRouter.route('/user')
+  .get(function (req, res) {
+    pg.connect(connectDB, function(err, client, done) {
       if (err) {
-        return console.error('error running query', err);
+        return console.error('error in fetching client', err);
       }
-      client.query('SELECT * FROM smartfridge.meal', function(err, meal) {
+      client.query('SELECT * FROM smartfridge.fooditem', function(err, food) {
         if (err) {
           return console.error('error running query', err);
         }
-        res.render('user', {fooditem: food.rows, meal: meal.rows});
+        client.query('SELECT * FROM smartfridge.meal', function(err, meal) {
+          if (err) {
+            return console.error('error running query', err);
+          }
+          res.render('user', {fooditem: food.rows, meal: meal.rows});
+        });
+        done();
       });
-      done();
     });
-
-  });
 });
+app.use(userRouter);
 
-app.get('/chef', function (req, res) {
+
+var chefRouter = express.Router();
+chefRouter.route('/chef')
+  .get(function (req, res) {
     res.render('chef');
-});
+  })
+  .post(function (req, res) {
+    pg.connect(connectDB, function(err, client, done) {
+      if (err) {
+        return console.error('error in fetching client', err);
+      }
+      client.query('SELECT mealid FROM smartfridge.meal ORDER BY mealid DESC LIMIT 1', function (err, mealID) {
+        if (err) {
+          return console.error('error running query', err);
+        }
+        var maxID = parseInt(mealID.rows[0].mealid);
+        client.query('INSERT INTO smartfridge.meal(mealid, name) VALUES($1, $2)',
+          [maxID+1, req.body.meal_name]);
+        done();
+        res.redirect('/chef');
+      });
+    });
+  });
+app.use(chefRouter);
+
 
 app.get('/admin', function (req, res) {
   res.render('admin');
 });
-
 
 app.listen(3000, function () {
   console.log('Running server on port 3000');
