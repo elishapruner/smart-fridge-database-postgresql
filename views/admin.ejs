@@ -80,59 +80,47 @@
                 <div class="clearfix"></div>
                 <h2 class="section-heading">Place Orders</h2>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">Ingredient Orders</span>
-                    <input type="text" class="form-control" placeholder="Add Ingredient Name to List"
-                           aria-describedby="basic-addon1">
-                </div>
-
-                <!--<div class="row">-->
-                    <!--<% for (let i = 0; i < ingredientorder.length; i++) { %>-->
-                    <!--<% if (ingredientorder[i].approved === false) { %>-->
-                    <!--<div class="col-sm-6 col-md-4">-->
-                        <!--<div class="thumbnail">-->
-                            <!--<div class="caption">-->
-                                <!--<h3><%= ingredientorder[i].name %></h3>-->
-                                <!--<p>Order ID: <%= ingredientorder[i].orderid %></p>-->
-                                <!--<p>Category: <%= ingredientorder[i].category %></p>-->
-                                <!--<p>Count: <%= ingredientorder[i].count %></p>-->
-                                <!--<p>Price per item: $<%= ingredientorder[i].pricerperitem %></p>-->
-                                <!--<p>Threshold: <%= ingredientorder[i].threshold %></p>-->
-                                <!--<div class="row">-->
-                                    <!--<div class="col-md-4">-->
-                                        <!--<form action="approve" method="UPDATE">-->
-                                            <!--<input type="submit" value="Approve" class="btn btn-success"/>-->
-                                        <!--</form>-->
-                                    <!--</div>-->
-                                    <!--<div class="col-md-4">-->
-                                        <!--&lt;!&ndash;<button class="btn btn-danger delete-order" data-id="<%= ingredientorder[i].orderid %>">Reject</button>&ndash;&gt;-->
-                                        <!--<form action="/reject" method="DELETE">-->
-                                            <!--<input type="submit" value="Reject" class="btn btn-danger" data-id="<%= ingredientorder[i].orderid %>" />-->
-                                        <!--</form>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<% } %>-->
-                    <!--<% } %>-->
-                    <!--</div>-->
+                <!--<div class="input-group">-->
+                <!--<span class="input-group-addon" id="basic-addon1">Ingredient Orders</span>-->
+                <!--<input type="text" class="form-control" placeholder="Add Ingredient Name to List"-->
+                <!--aria-describedby="basic-addon1">-->
                 <!--</div>-->
 
-                <!--<div style="padding-top:20px">-->
-                    <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
-                        <!--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>-->
-                    <!--</button>-->
-                <!--</div>-->
-
-                <div style="padding-top: 30px">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="row">
+                    <% for (let i = 0; i < ingredientorder.length; i++) { %>
+                    <% if (ingredientorder[i].approved === true) { %>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3><%= ingredientorder[i].name %></h3>
+                                <p>Order ID: <%= ingredientorder[i].orderid %></p>
+                                <p>Category: <%= ingredientorder[i].category %></p>
+                                <p>Count: <%= ingredientorder[i].count %></p>
+                                <p>Price per item: $<%= ingredientorder[i].priceperitem %></p>
+                                <p>Threshold: <%= ingredientorder[i].threshold %></p>
+                                <div class="row">
+                                    <form action="/delete" method="POST">
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="Order ID"
+                                                   aria-describedby="sizing-addon1" name="delete_orderID"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="submit" value="Delete" class="btn btn-danger"/>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <% } %>
                 </div>
-
             </div>
         </div>
     </div>
-    <!-- /.container -->
+</div>
+</div>
+<!-- /.container -->
 </div>
 <!-- /.content-section-a -->
 
@@ -147,33 +135,46 @@
 
                 <div class="row">
                     <% for (let i = 0; i < ingredientorder.length; i++) { %>
-                        <% if (ingredientorder[i].approved === false) { %>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <div class="caption">
-                                        <h3><%= ingredientorder[i].name %></h3>
-                                        <p>Order ID: <%= ingredientorder[i].orderid %></p>
-                                        <p>Category: <%= ingredientorder[i].category %></p>
-                                        <p>Count: <%= ingredientorder[i].count %></p>
-                                        <p>Price per item: $<%= ingredientorder[i].pricerperitem %></p>
-                                        <p>Threshold: <%= ingredientorder[i].threshold %></p>
+                    <% if (ingredientorder[i].approved === false) { %>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3><%= ingredientorder[i].name %></h3>
+                                <p>Order ID: <%= ingredientorder[i].orderid %></p>
+                                <p>Category: <%= ingredientorder[i].category %></p>
+                                <p>Count: <%= ingredientorder[i].count %></p>
+                                <p>Price per item: $<%= ingredientorder[i].priceperitem %></p>
+                                <p>Threshold: <%= ingredientorder[i].threshold %></p>
+                                <div class="row" style="padding-left:20px;">
+                                    <form action="/approve" method="POST">
                                         <div class="row">
-                                            <div class="col-md-4">
-                                                <form action="approve" method="UPDATE">
-                                                    <input type="submit" value="Approve" class="btn btn-success"/>
-                                                </form>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="OrderID"
+                                                       aria-describedby="basic-addon1" name="approve_orderID">
                                             </div>
-                                            <div class="col-md-4">
-                                                <!--<button class="btn btn-danger delete-order" data-id="<%= ingredientorder[i].orderid %>">Reject</button>-->
-                                                <form action="/reject" method="DELETE">
-                                                    <input type="submit" value="Reject" class="btn btn-danger" data-id="<%= ingredientorder[i].orderid %>" />
-                                                </form>
+                                            <div class="col-md-6">
+                                                <input type="submit" value="Approve" class="btn btn-success"/>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
+                                </div>
+                                <div class="row" style="padding-left:20px; padding-top:20px">
+                                    <form action="/delete" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="OrderID"
+                                                       aria-describedby="basic-addon1" name="delete_orderID">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="submit" value="Reject" class="btn btn-danger"/>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        <% } %>
+                        </div>
+                    </div>
+                    <% } %>
                     <% } %>
                     <div>
                     </div>
@@ -202,9 +203,9 @@
                             </div>
                             <div class="panel-body">
                                 <ol>
-                                    <li>Milk</li>
-                                    <li>Eggs</li>
-                                    <li>Flour</li>
+                                    <li><%= ingredientorder[0].name %></li>
+                                    <li><%= ingredientorder[1].name %></li>
+                                    <li><%= ingredientorder[2].name %></li>
                                 </ol>
                             </div>
                         </div>
@@ -215,7 +216,7 @@
                                 <h3 class="panel-title">Most Frequently Requested Food</h3>
                             </div>
                             <div class="panel-body">
-                                Cheese
+                                <%= ingredientorder[0].name %>
                             </div>
                         </div>
                     </div>
